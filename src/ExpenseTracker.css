@@ -1,0 +1,208 @@
+/* General resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Clean and modern font */
+  }
+  
+  body {
+    background-color: #384564; /* Dark background */
+    color: #ffffff; /* Light text for contrast */
+    min-height: 100vh;
+    overflow: hidden; /* Prevents scroll from background animation */
+  }
+  
+  /* Moving background animation */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(135deg, #00e5ff 25%, transparent 25%) -50px 0/ 100px 100px,
+                linear-gradient(225deg, #00e5ff 25%, transparent 25%) -50px 0/ 100px 100px,
+                linear-gradient(315deg, #00e5ff 25%, transparent 25%) 0px 0/ 100px 100px,
+                linear-gradient(45deg, #00e5ff 25%, transparent 25%) 0px 0/ 100px 100px;
+    animation: moveBackground 10s linear infinite;
+    opacity: 0.05; /* Soft glow in the background */
+    z-index: -1; /* Puts animation behind content */
+  }
+  
+  /* Background animation */
+  @keyframes moveBackground {
+    0% {
+      background-position: 0 0, 0 0, 0 0, 0 0;
+    }
+    100% {
+      background-position: 100px 100px, -100px -100px, 100px -100px, -100px 100px;
+    }
+  }
+  
+  /* Main container */
+  .app {
+    max-width: 700px;
+    margin: 5rem auto;
+    padding: 2rem;
+    background-color: rgba(185, 196, 231, 0.318); /* Semi-transparent dark background */
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Glowing box shadow */
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+  }
+  
+  .app:hover {
+    transform: scale(1.05); /* Subtle hover scaling */
+    box-shadow: 0 12px 40px rgba(0, 255, 255, 0.2); /* Neon glow hover effect */
+  }
+  
+  /* Heading */
+  h1 {
+    color: #082325; /* Bright neon blue */
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.7); /* Glowing text */
+  }
+  
+  /* Add Expense Form */
+  .add-expense-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .add-expense-form label {
+    font-size: 1.1rem;
+    color: #b0bec5;
+  }
+  
+  .add-expense-form input {
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: #83eaf861; /* Dark input background */
+    color: #e0e0e0; /* Light text */
+    border-radius: 8px;
+    border: 2px solid #4caf50; /* Green border */
+    transition: border-color 0.3s ease-in-out;
+    margin-left: 0.5rem;
+  }
+  
+  .add-expense-form input:focus {
+    outline: none;
+    border-color: #00e5ff; /* Neon blue on focus */
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.7); /* Glow effect on focus */
+  }
+  
+  /* Add Expense Button */
+  .add-expense-form button {
+    padding: 1rem;
+    background-color: #4caf50; /* Neon green button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .add-expense-form button:hover {
+    background-color: #388e3c; /* Darker green on hover */
+    box-shadow: 0 0 12px rgba(76, 175, 80, 0.8); /* Glowing effect */
+  }
+  
+  /* Expenses Section */
+  .expenses {
+    margin-top: 2rem;
+  }
+  
+  .expenses h2 {
+    color: #4caf50;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  
+  .expense-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c313a; /* Dark card background */
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Card shadow */
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s;
+  }
+  
+  .expense-item:hover {
+    background-color: #37404a;
+    box-shadow: 0 6px 18px rgba(0, 255, 255, 0.3); /* Glow on hover */
+  }
+  
+  .expense-title {
+    font-size: 1.2rem;
+    color: #00e5ff; /* Neon blue for titles */
+    font-weight: bold;
+  }
+  
+  .expense-date {
+    font-size: 0.9rem;
+    color: #b0bec5;
+  }
+  
+  .expense-amount {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff7043; /* Orange for expense amount */
+  }
+  
+  /* Expense Summary */
+  .expense-summary {
+    margin-top: 2rem;
+  }
+  
+  .expense-summary h2 {
+    color: #4caf50; /* Green for section title */
+    font-size: 2rem;
+  }
+  
+  .expense-summary p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #9ae793; /* Orange for the total amount */
+  }
+  
+  /* Responsive Design for Mobile */
+  @media (max-width: 600px) {
+    .app {
+      padding: 1.5rem;
+    }
+  
+    .expense-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .expense-amount {
+      margin-top: 0.8rem;
+      color: #ff7043;
+    }
+  
+    .add-expense-form {
+      gap: 1rem;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
