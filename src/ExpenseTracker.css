@@ -9,8 +9,7 @@
   body {
     background-color: #384564; /* Dark background */
     color: #ffffff; /* Light text for contrast */
-    min-height: 100vh;
-    overflow: hidden; /* Prevents scroll from background animation */
+
   }
   
   /* Moving background animation */
@@ -19,7 +18,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
     background: linear-gradient(135deg, #00e5ff 25%, transparent 25%) -50px 0/ 100px 100px,
                 linear-gradient(225deg, #00e5ff 25%, transparent 25%) -50px 0/ 100px 100px,
@@ -51,6 +50,8 @@
     text-align: center;
     transition: transform 0.3s ease-in-out;
     backdrop-filter: blur(8px); /* Frosted glass effect */
+    max-height: 80vh; /* Set max height so content doesn’t overflow page */
+    overflow-y: auto; /* Enable scrolling */
   }
   
   .app:hover {
@@ -205,4 +206,22 @@
       font-size: 2rem;
     }
   }
+/* Adding scroll bar to the expense list */
+.expenses {
+    margin-top: 2rem;
+    max-height: 300px; /* Set the maximum height of the expense list */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
   
+  .expenses::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+  
+  .expenses::-webkit-scrollbar-thumb {
+    background-color: #4caf50; /* Green color for the scrollbar thumb */
+    border-radius: 10px; /* Rounded scrollbar */
+  }
+  
+  .expenses::-webkit-scrollbar-track {
+    background: #2c313a; /* Dark background for scrollbar track */
+  }

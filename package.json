@@ -1,5 +1,6 @@
 {
   "name": "expense-tracker",
+  "homepage": "https://5ucl33p.github.io/expensetracker/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>💸 Expense Tracker💸</h1>
+      <h1>💸 Expense Tracker 💸</h1>
 
       {/* Add Expense Form */}
       <form onSubmit={addExpenseHandler} className="add-expense-form">
@@ -87,6 +87,7 @@ const App = () => {
         <h2>Total Spent</h2>
         <p>₹{totalAmount.toFixed(2)}</p>
       </div>
+      
     </div>
   );
 };
